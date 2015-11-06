@@ -7,7 +7,7 @@ language_tabs:
   - python
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
+  - <a href='https://console.cloud-elements.com/elements/jsp/signup.jsp'>Sign Up for a free Developer Account</a>
   - <a href='http://github.com/tripit/slate'>Documentation Powered by Slate</a>
 
 includes:
@@ -18,15 +18,37 @@ search: true
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Welcome to Cloud Elements API Documentation.  Integrate entire categories of services through uniform APIs.
 
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+This page provides in-depth documentation on Cloud Elements integrations (e.g. Salesforce, HubSpot, QuickBooks, Dropbox). This documentation is meant to be a guide for developers integrating these services into applications.
 
-This example API documentation page was created with [Slate](http://github.com/tripit/slate). Feel free to edit it and use it as a base for your own API's documentation.
+View example API calls and responses right from the documentation.  If you have any questions, feel free to [contact](mailto:support@cloud-elements.com) us.
+
+# Base URL
+
+```
+https://api.cloud-elements.com/elements/api-v2
+```
 
 # Authentication
 
-> To authorize, use this code:
+To call our APIs, you will need an account with Cloud Elements. To get an account, you must sign up using our console. When you create an account with us, we assign you an Organization secret and a User secret. An Organization is a customer of Cloud Elements (/organizations).
+An Organization secret and User secret are needed to call our Platform APIs, to do things like:
+* learn about our Catalog of endpoints (/elements)
+* create connections to an endpoint (/instances) e.g. Dropbox or Salesforce
+
+When you create a new connection to an endpoint, you will receive an Element token.
+An Element token and a User secret are required to execute one of our Hub API calls (e.g. /hubs/documents or /hubs/crm) to:
+* upload a file to a cloud storage account
+* create a new contact in a CRM service
+
+Our tokens and secrets are passed as HTTP Header Values.
+
+> For example, to make an API call, the following authorization header is passed:
+
+```
+Authorization: User <INSERT_USER_SECRET>, Element <INSERT_ELEMENT_TOKEN>
+```
 
 ```ruby
 require 'kittn'
@@ -165,4 +187,3 @@ This endpoint retrieves a specific kitten.
 Parameter | Description
 --------- | -----------
 ID | The ID of the kitten to retrieve
-
